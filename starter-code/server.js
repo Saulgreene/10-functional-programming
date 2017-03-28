@@ -11,7 +11,9 @@ const app = express();
 const conString = ''; // TODO: Don't forget to set your own conString
 const client = new pg.Client(conString);
 client.connect();
-client.on(console.error);
+client.on('error', function(error) {
+  console.error(error);
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
