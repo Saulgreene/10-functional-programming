@@ -11,7 +11,14 @@
     <link rel="stylesheet" href="/styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
     <script id="author-stats-template" type="text/x-handelbars-template">
-    TODO:
+      <section id="templateInfo">
+      <h1>{{title}}</h1>
+        <img class="" src="{{}}" alt="">
+        <a class="" href="{{}">View Project</a>
+        <div class="date">{{}}</div><br>
+        <p class="">{{}}</p><br>
+        <p class="">{{}}</p>
+      </section>
     </script>
 
   </head>
@@ -31,15 +38,18 @@
           <li class="tab"><a href="new.html">New Article</a></li>
         </ul>
       </nav>
+
     </header>
     <main class="clearfix">
       <h1>Blog Stats</h1>
       <section id="blog-stats">
-        <dt>Total articles:</dt> <dd class="articles"></dd>
-        <dt>Total words:</dt> <dd class="words"></dd>
+        <dt>Total articles: {{}}</dt> <dd class="articles"></dd>
+        <dt>Total words:{{}}</dt> <dd class="words"></dd>
         <h2>Author Stats</h2>
         <p><em>Details on who is writing, and how much writing they are doing...</em></p>
         <ul class="author-stats">
+          <dt>Total articles: {{}}</dt> <dd class="articles"></dd>
+          <dt>Total words:{{}}</dt> <dd class="words"></dd>
           <!-- TODO: No code to write here, but this is where you use a Handlebars template to give some stats for each author -->
         </ul>
       </section>
@@ -53,9 +63,9 @@
     <script src="/scripts/article.js"></script>
     <script src="/scripts/articleView.js"></script>
     <script>
-      // TODO: After we fetch and load all the articles, what view function do we want to run next?
+      // TODODONE: After we fetch and load all the articles, what view function do we want to run next?
       // Let's pass in a callback function, to determine what happens AFTER all articles are loaded.
-      Article.fetchAll();
+      Article.fetchAll(articleView.initAdminPage);
     </script>
   </body>
 </html>
