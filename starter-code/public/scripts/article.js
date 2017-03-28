@@ -56,7 +56,19 @@ Article.numWordsAll = () => {
 
 // TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names.
 Article.allAuthors = () => {
-  return Article.all.map().reduce()
+  return Article.all.map(function(data){
+    return data.author;
+  }).reduce(function(authors, currentAuthor){
+    if(!authors.includes(currentAuthor)){
+      console.log(typeof(authors));
+      console.log('current acc: ', authors);
+      console.log('current val: ', currentAuthor);
+      authors.push(currentAuthor);
+      return authors;
+    }else{
+      return authors;
+    }
+  },[])
 };
 
 Article.numWordsByAuthor = () => {
